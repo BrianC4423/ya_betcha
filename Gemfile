@@ -52,4 +52,5 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'oauth2'
 gem 'foundation-rails'
