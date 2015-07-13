@@ -10,7 +10,6 @@ class CreateBets < ActiveRecord::Migration
       t.boolean :accepted?, default: false
       t.boolean :declined?, default: false
 
-
       t.timestamps
     end
   end
