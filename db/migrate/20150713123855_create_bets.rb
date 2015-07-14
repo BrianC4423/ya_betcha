@@ -5,7 +5,7 @@ class CreateBets < ActiveRecord::Migration
       t.integer :receiver_id, null: false
       t.string :title, null: false
       t.string :body, null: false
-      t.string :category, null: false
+      t.integer :wager_id, null: false
       t.date :date
       t.boolean :accepted?, default: false
       t.boolean :declined?, default: false
