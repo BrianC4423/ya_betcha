@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+WAGERS = [
+  "Friendly",
+  "Money",
+  "Dinner",
+  "Other"
+]
+
+WAGERS.each do |wager|
+  Wager.find_or_create_by!(name: wager)
+end
