@@ -31,6 +31,6 @@ feature 'user sends bet to another user', %{
 
     click_button 'Submit Bet'
 
-    expect(page).to have_content()
+    expect(page).to have_content('Bet Submitted')
   end
 end
