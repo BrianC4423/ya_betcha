@@ -1,19 +1,19 @@
 <%= form_for @bet do |f| %>
   <%= f.label :Email %>
-  <%= f.text_field :receiver_id %>
+  <%= f.text_field :receiver_id, id:'Email' %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>
 
   <%= f.label :terms %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, id:'Terms' %>
 
   <%= f.label :wager_id %>
   <%= f.collection_select(:wager_id, Wager.all, :id, :name,
     prompt: true) %>
 
   <%= f.label :Date %>
-  <%= f.text_field :date %>
+  <%= f.text_field :date, id:'Date' %>
 
 
   <%= f.submit 'Submit Bet' %>

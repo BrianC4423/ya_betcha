@@ -6,5 +6,7 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
-
+  factory :wager do
+    sequence(:name) { |n| "wager #{n}" }
+  end
 end
