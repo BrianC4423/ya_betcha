@@ -7,6 +7,10 @@ class BetsController < ApplicationController
     @bet = Bet.new
   end
 
+  def show
+    @bet = Bet.find(params[:id])  
+  end
+
   def create
     @bet = Bet.new(bet_params)
     @bet.sender = current_user

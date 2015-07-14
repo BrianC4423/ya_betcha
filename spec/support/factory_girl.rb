@@ -9,4 +9,12 @@ FactoryGirl.define do
   factory :wager do
     sequence(:name) { |n| "wager #{n}" }
   end
+  factory :bet do
+    sequence(:sender_id) { |n| n }
+    sequence(:receiver_id) { |n| n }
+    title "Test Bet"
+    body "Body of test bet"
+    wager
+    accepted? true
+  end
 end
