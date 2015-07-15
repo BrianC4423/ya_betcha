@@ -8,7 +8,7 @@ class BetsController < ApplicationController
   end
 
   def show
-    @bet = Bet.find(params[:id])  
+    @bet = Bet.find(params[:id])
   end
 
   def create
@@ -18,7 +18,7 @@ class BetsController < ApplicationController
     if receiver.present?
       @bet.receiver_id = receiver.id
     else
-      flash[:error] = 'Email is not registered user'
+      flash[:notice] = 'Email is not registered user'
     end
 
     if @bet.save
@@ -27,6 +27,37 @@ class BetsController < ApplicationController
     else
       announce_errors(@bet)
       render :new
+    end
+  end
+
+  def edit
+    @bet = Bet.find(params[:id])
+  end
+  def update
+    @bet = Bet.find(params[:id])
+  end
+  def accept
+    @bet = Bet.find(params[:id])
+    if current_user.id == @bet.receiver_id
+      @bet.accepted = true
+      @bet.save
+      flash[:notice] = "Bet has been accepted!"
+      redirect_to bet_path(@bet)
+    else
+      flash[:notice] = "You are not an authorized user"
+      render :show
+    end
+  end
+  def decline
+    @bet = Bet.find(params[:id])
+    if current_user.id == @bet.receiver_id
+      @bet.declined = true
+      @bet.save
+      flash[:notice] = "Bet has been declined..."
+      redirect_to bet_path(@bet)
+    else
+      flash[:notice] = "You are not an authorized user"
+      render :show
     end
   end
 
@@ -50,7 +81,7 @@ class BetsController < ApplicationController
     flash[:alert] = %(
       #{count} #{'error'.pluralize(count)}
       prohibited this plan from being saved:
-      #{plan.errors.full_messages.join('. ')}
+      #{bet.errors.full_messages.join('. ')}
     )
   end
 end

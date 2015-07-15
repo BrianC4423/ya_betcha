@@ -1,7 +1,11 @@
   <div class='row'>
     <div class="pending">
-      <% if !@bet.accepted? %>
-      <h5>**Bet is Pending Approval**</h5>
+      <% if !@bet.accepted? && !@bet.declined? %>
+        <h5>**Bet is Pending Approval**</h5>
+      <% elsif @bet.accepted? %>
+        <h5>**Bet is Accepted**</h5>
+      <% else %>
+        <h5>**Bet is Declined**</h5>
       <% end %>
     </div>
   </div>
@@ -15,9 +19,9 @@
 
   <div class='row'>
     <div class='large-6 columns'>
-      <a href="#" class="button large">Accept</a>
+      <%= link_to "Accept", accept_bet_path(@bet), method: :patch  %>
     </div>
     <div class='large-6 columns'>
-      <a href="/" class="button large">Decline</a>
+      <%= link_to "Decline", decline_bet_path(@bet), method: :patch  %>
     </div>
   </div>
