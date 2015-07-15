@@ -37,7 +37,7 @@ class BetsController < ApplicationController
   def update
     @bet = Bet.find(params[:id])
   end
-  
+
   def accept
     @bet = Bet.find(params[:id])
     if current_user.id == @bet.receiver_id
