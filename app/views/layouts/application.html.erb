@@ -11,14 +11,13 @@
     <ul class="title-area">
       <li class="name">
         <h1><a href="/">YaBetcha</a></h1>
-        <%= link_to 'Send Bet', new_bet_path %>
-      </li>
-      <li>
-
       </li>
     </ul>
 
     <section class="top-bar-section">
+      <ul class="left">
+        <li><%= link_to 'Send Bet', new_bet_path %></li>
+      </ul>
       <ul class="right">
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
