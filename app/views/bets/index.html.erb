@@ -1,8 +1,34 @@
 <div class="all bets">
   <h3>Bets, Bets, Bets</h3>
-  <ul>
-    <% @bets.each do |bet| %>
-  <li><%= link_to bet.title, bet_path(bet) %></li>
-    <% end %>
-  </ul>
+
+  <div class="accepted-bets">
+    <h4>Active Bets<h4>
+      <ul>
+        <% @bets.each do |bet| %>
+          <% if bet.accepted? %>
+            <li><%= link_to bet.title, bet_path(bet) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+  </div>
+  <div class="pending-bets">
+    <h4>Pending Bets</h4>
+      <ul>
+        <% @bets.each do |bet| %>
+          <% if !bet.accepted && !bet.declined %>
+            <li><%= link_to bet.title, bet_path(bet) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+  </div>
+  <div class="declined-bets">
+    <h4>Declined Bets</h4>
+      <ul>
+        <% @bets.each do |bet| %>
+          <% if bet.declined? %>
+            <li><%= link_to bet.title, bet_path(bet) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+  </div>
 </div>

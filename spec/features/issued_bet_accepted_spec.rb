@@ -11,7 +11,7 @@ feature 'user accepts bet', %{
   # []
 
   let! (:user) { FactoryGirl.create(:user) }
-  let! (:bet) { FactoryGirl.create(:bet, receiver_id: user.id) }
+  let! (:bet) { FactoryGirl.create(:bet, receiver: user) }
   let! (:user1) { FactoryGirl.create(:user) }
 
   scenario "only user who receives the bet can accept it." do
