@@ -8,8 +8,4 @@ class Bet < ActiveRecord::Base
   validates :title, presence: true
   validates :body, presence: true
   validates :wager_id, presence: true
-
-def self.pending?
-  !self.accepted && !self.declined
-end
 end
