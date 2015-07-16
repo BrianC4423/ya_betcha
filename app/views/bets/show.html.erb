@@ -12,10 +12,21 @@
 
   <div class='row'>
     <div class="large-3 columns"></div>
-      <div class="large-6 columns", id="show-page-header"><h3><%= @bet.title %></h3></div>
-    <div class="large-3 columns"></div>
+      <div class="large-6 columns"><h3><%= @bet.title %></h3></div>
+    </div>
   </div>
-
+  <div class='row'>
+    <div class="large-3 columns"></div>
+      <div class="large-6 columns">
+        <h4>This bet was issued by <%= @bet.sender.username %> to <%= @bet.receiver.username %></h4>
+        <p>Terms of Bet: <%= @bet.body %></p>
+        <p>Wager Type: <%= @bet.wager.name %></p>
+        <% if !@bet.date.nil? %>
+          <p>Date: <%= @bet.date %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
   <div class='row'>
     <div class='large-6 columns'>
