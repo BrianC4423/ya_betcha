@@ -27,7 +27,6 @@ feature 'user accepts bet', %{
     click_link 'Accept'
 
     expect(page).to have_content("**Bet is Accepted**")
-
   end
 
   scenario "only user is not authorized to accept." do
@@ -41,9 +40,7 @@ feature 'user accepts bet', %{
 
     click_link(bet.title)
 
-
     expect(page).to_not have_content("Accept")
     expect(page).to have_content("**Bet is Pending Approval**")
-
   end
 end
