@@ -1,34 +1,35 @@
 <div class="all bets">
   <h3>Bets, Bets, Bets</h3>
-
-  <div class="accepted-bets">
-    <h4>Active Bets<h4>
-      <ul>
-        <% @bets.each do |bet| %>
-          <% if bet.accepted? %>
-            <li><%= link_to bet.title, bet_path(bet) %></li>
+  <div class="row">
+    <div class="accepted-bets small-4 columns panel">
+      <h4>Active Bets<h4>
+        <ul>
+          <% @bets.each do |bet| %>
+            <% if bet.accepted? %>
+              <li><%= link_to bet.title, bet_path(bet) %></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
-  </div>
-  <div class="pending-bets">
-    <h4>Pending Bets</h4>
-      <ul>
-        <% @bets.each do |bet| %>
-          <% if !bet.accepted && !bet.declined %>
-            <li><%= link_to bet.title, bet_path(bet) %></li>
+        </ul>
+    </div>
+    <div class="pending-bets small-4 columns panel">
+      <h4>Pending Bets</h4>
+        <ul>
+          <% @bets.each do |bet| %>
+            <% if !bet.accepted && !bet.declined %>
+              <li><%= link_to bet.title, bet_path(bet) %></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
-  </div>
-  <div class="declined-bets">
-    <h4>Declined Bets</h4>
-      <ul>
-        <% @bets.each do |bet| %>
-          <% if bet.declined? %>
-            <li><%= link_to bet.title, bet_path(bet) %></li>
+        </ul>
+    </div>
+    <div class="declined-bets small-4 columns panel">
+      <h4>Declined Bets</h4>
+        <ul>
+          <% @bets.each do |bet| %>
+            <% if bet.declined? %>
+              <li><%= link_to bet.title, bet_path(bet) %></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+    </div>
   </div>
 </div>
