@@ -17,6 +17,5 @@ FactoryGirl.define do
     title "Test Bet"
     body "Body of test bet"
     wager
-    accepted true
   end
 end

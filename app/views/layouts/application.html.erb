@@ -28,18 +28,18 @@
     </section>
   </nav>
 
-  <div class="main-container">
-    <div class="main-title">
-      <h1>Ya Betcha</h1>
-    </div>
-
     <%- flash.each do |key, value| -%>
       <div class="flash flash-<%= key %>">
         <%= value %>
       </div>
     <%- end -%>
-
-    <%= yield %>
+  <div class="row">
+    <div class="column text-center">
+      <div class="main-title">
+        <h1>Ya Betcha</h1>
+      </div>
+      <%= yield %>
+    </div>
   </div>
 
   <%= javascript_include_tag 'application' %>
