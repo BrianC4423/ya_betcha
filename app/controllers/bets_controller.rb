@@ -9,6 +9,8 @@ class BetsController < ApplicationController
 
   def show
     @bet = Bet.find(params[:id])
+    @comments = @bet.comments
+    @comment = Comment.new
   end
 
   def create
@@ -62,6 +64,9 @@ class BetsController < ApplicationController
       flash[:notice] = "You are not an authorized user"
       render :show
     end
+  end
+
+  def destroy
   end
 
   private

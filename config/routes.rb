@@ -2,12 +2,15 @@ Rails.application.routes.draw do
   root 'bets#index'
   devise_for :users
 
-  resources :bets, only: [:index, :new, :create, :show, :update]
+  resources :bets, only: [:index, :new, :create, :show, :update] do
+    resources :comments, only: [:new, :create, :destroy]
+  end
   resources :bets, only: [:show] do
     member do
       patch :accept
       patch :decline
     end
+    resources :comments, only: [:destroy]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

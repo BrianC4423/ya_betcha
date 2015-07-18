@@ -1,0 +1,6 @@
+<%= form_for [@bet, @comment] do |f| %>
+  <%= f.label :body, "Comment" %>
+  <%= f.text_field :body %>
+
+  <%= f.submit  "Add Comment" %>
+<%- end -%>
