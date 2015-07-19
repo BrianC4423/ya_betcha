@@ -9,8 +9,12 @@ feature 'user sends bet to another user', %{
   #
   #
   #
+
   let (:user) { FactoryGirl.create(:user) }
   scenario 'authenticated user issues a bet to another user' do
+    # Clear out any previously delivered emails
+    ActionMailer::Base.deliveries.clear
+
     user1 = FactoryGirl.create(:user)
     wager = FactoryGirl.create(:wager)
     visit new_user_session_path
@@ -32,5 +36,6 @@ feature 'user sends bet to another user', %{
     click_button 'Submit Bet'
 
     expect(page).to have_content('Bet Submitted')
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 end

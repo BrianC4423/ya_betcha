@@ -3,14 +3,14 @@ class BetsController < ApplicationController
     @bets = Bet.all
   end
 
-  def new
-    @bet = Bet.new
-  end
-
   def show
     @bet = Bet.find(params[:id])
     @comments = @bet.comments
     @comment = Comment.new
+  end
+
+  def new
+    @bet = Bet.new
   end
 
   def create
@@ -25,6 +25,7 @@ class BetsController < ApplicationController
 
     if @bet.save
       flash[:success] = 'Bet Submitted'
+      BetMailer.new_bet(@bet).deliver_later
       redirect_to root_path
     else
       announce_errors(@bet)
