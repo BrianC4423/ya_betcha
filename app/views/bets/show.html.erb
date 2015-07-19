@@ -21,7 +21,6 @@
     </div>
   </div>
 
-
   <div class='row'>
     <% if !@bet.accepted? && !@bet.declined? && current_user == @bet.receiver %>
     <div class='large-6 columns'>
@@ -31,4 +30,33 @@
       <%= link_to "Decline", decline_bet_path(@bet), method: :patch, class: "button round alert" %>
     </div>
     <% end %>
+  </div>
+
+  <div class="row collapse">
+  <div class="review-display small-12 columns panel">
+    <h4>Comments</h4>
+
+    <% if @bet.comments.length == 0 %>
+      <p>No reviews yet.</p>
+
+    <% else %>
+      <ol>
+        <% @bet.comments.each do |comment| %>
+            <li>
+            <%=" #{comment.body}" unless comment.body.nil? %><br>
+            <p>User: <%= "#{comment.user.username}" %>
+                <% if current_user == comment.user %>
+                <%= link_to 'Delete', bet_comment_path(@bet, comment), method: :delete %>
+                <% end %>
+            </p>
+
+            <%- end -%>
+          </li>
+      </ol>
+    <%- end -%>
+  </div>
+
+
+  <div class="comment-new small-12 column">
+    <%= render 'comments/form' %>
   </div>
