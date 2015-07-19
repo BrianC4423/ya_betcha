@@ -1,0 +1,7 @@
+Hello <%= @bet.receiver.username %>,
+
+<%= @bet.sender.username %> has issued a bet with you.
+Please view details of the bet at <%= link_to "#{@bet.title}", bet_url(@bet) %>,
+Do not forget to accept or decline.
+
+You just might WIN!
