@@ -57,16 +57,13 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
     if current_user.id == @bet.receiver_id
       @bet.declined = true
-      @bet.save
-      flash[:notice] = "Bet has been declined..."
-      redirect_to bet_path(@bet)
+      @bet.destroy!
+      flash[:notice] = "Bet has been declined, and deleted!"
+      redirect_to bets_path
     else
       flash[:notice] = "You are not an authorized user"
       render :show
     end
-  end
-
-  def destroy
   end
 
   private
