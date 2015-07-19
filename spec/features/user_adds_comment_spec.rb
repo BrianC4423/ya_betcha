@@ -9,6 +9,7 @@ feature 'user writes comment on bet', %{
   # Acceptance Criteria
   # [] I must be logged in to submit a comment
   # [] The comment must display my username
+  # [] The comment can be deleted by its originater
 
   let! (:user) { FactoryGirl.create(:user) }
   let! (:bet) { FactoryGirl.create(:bet, receiver: user) }
@@ -40,5 +41,23 @@ feature 'user writes comment on bet', %{
     click_button 'Add Comment'
 
     expect(page).to have_content("User can't be blank")
+  end
+
+  scenario "User deletes own comment." do
+    visit new_user_session_path
+
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_button 'Log in'
+    visit bets_path
+
+    click_link(bet.title)
+    fill_in 'Comment', with: 'You are gonna lose BRAH!'
+    click_button 'Add Comment'
+
+    click_link 'Delete'
+
+    expect(page).to have_content("Comment deleted")
   end
 end
