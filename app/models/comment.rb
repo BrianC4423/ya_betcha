@@ -5,5 +5,4 @@ class Comment < ActiveRecord::Base
   validates :body, presence: true
   validates :user, presence: true
   validates :bet, presence: true
-
 end
