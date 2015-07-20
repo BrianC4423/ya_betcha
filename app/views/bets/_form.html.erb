@@ -12,8 +12,8 @@
   <%= f.collection_select(:wager_id, Wager.all, :id, :name,
     prompt: true) %>
 
-  <%= f.label :Date %>
-  <%= f.text_field :date, id:'Date' %>
+  <%= f.label :Date, "Date(optional)" %>
+  <%= f.text_field :date, id: 'Date' %>
 
 
   <%= f.submit 'Submit Bet' %>

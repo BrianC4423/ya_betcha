@@ -1,35 +1,26 @@
 <div class="all bets">
   <h3>Bets, Bets, Bets</h3>
   <div class="row">
-    <div class="accepted-bets small-4 columns panel">
+    <div class="accepted-bets small-6 columns panel">
       <h4>Active Bets<h4>
-        <ul>
+        <ol>
           <% @bets.each do |bet| %>
             <% if bet.accepted? %>
               <li><%= link_to bet.title, bet_path(bet) %></li>
             <% end %>
           <% end %>
-        </ul>
+        </ol>
     </div>
-    <div class="pending-bets small-4 columns panel">
+    <div class="pending-bets small-6 columns panel">
       <h4>Pending Bets</h4>
-        <ul>
+        <ol>
           <% @bets.each do |bet| %>
             <% if !bet.accepted && !bet.declined %>
               <li><%= link_to bet.title, bet_path(bet) %></li>
             <% end %>
           <% end %>
-        </ul>
-    </div>
-    <div class="declined-bets small-4 columns panel">
-      <h4>Declined Bets</h4>
-        <ul>
-          <% @bets.each do |bet| %>
-            <% if bet.declined? %>
-              <li><%= link_to bet.title, bet_path(bet) %></li>
-            <% end %>
-          <% end %>
-        </ul>
+        </ol>
     </div>
   </div>
+        <%= paginate @bets %>
 </div>

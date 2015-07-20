@@ -33,6 +33,7 @@
         <%= value %>
       </div>
     <%- end -%>
+  <div class="main-container">
   <div class="row">
     <div class="column text-center">
       <div class="main-title">
@@ -44,5 +45,13 @@
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
+
+  <div class="row">
+    <div class="column text-center">
+      <div class="footer text-center">
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

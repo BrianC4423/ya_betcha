@@ -15,6 +15,31 @@
  *= require foundation_and_overrides
 
  */
+ body {
+  /* font-family: Helvetica, sans-serif; */
+}
+
+ .main-container {
+   background-color: #CCFFFF;
+ }
 .main-title {
   border-bottom: 5px groove green;
+}
+
+.footer {
+  margin-top: 25px;
+  padding-bottom: 25px;
+  border-top: 5px groove green;
+}
+
+.panel {
+  text-align: center;
+}
+
+.top-bar {
+  background-color: #00CC66;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background-color: #00CC66;
 }
