@@ -9,4 +9,6 @@ class Bet < ActiveRecord::Base
   validates :title, presence: true
   validates :body, presence: true
   validates :wager_id, presence: true
+
+  paginates_per 10
 end
