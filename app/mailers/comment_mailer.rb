@@ -3,7 +3,7 @@ class CommentMailer < ApplicationMailer
   def sender_comment(bet, comment)
     @bet = bet
     @comment = comment
-    
+
     mail(
       to: bet.sender.email,
       subject: "New Comment added to #{bet.title}"
