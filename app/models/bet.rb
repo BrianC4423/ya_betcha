@@ -2,7 +2,7 @@ class Bet < ActiveRecord::Base
   belongs_to :sender, class_name: 'User'
   belongs_to :receiver, class_name: 'User'
   belongs_to :wager
-  
+
   has_many :comments, dependent: :destroy
 
   validates :sender_id, presence: true
