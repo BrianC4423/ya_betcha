@@ -2,3 +2,6 @@
 
 ![Build Status](https://codeship.com/projects/76153b50-0934-0133-7085-72148ce6a2d8/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/BrianC4423/ya_betcha.png)
+
+
+## IM THE DOG!
