@@ -16,6 +16,7 @@ feature 'user writes comment on bet', %{
   let! (:user1) { FactoryGirl.create(:user) }
 
   scenario "User wants to add comment to bet." do
+    ActionMailer::Base.deliveries.clear
     visit new_user_session_path
 
     fill_in 'Email', with: user.email
@@ -31,6 +32,7 @@ feature 'user writes comment on bet', %{
     expect(page).to have_content("Comment has been Added")
     expect(page).to have_content(bet.title)
     expect(page).to have_content("Delete")
+    expect(ActionMailer::Base.deliveries.count).to eq(2)
   end
 
   scenario "not signed in user tries to add comment." do

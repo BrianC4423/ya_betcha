@@ -1,0 +1,6 @@
+Hello <%= @bet.receiver %>,
+
+<%= @bet.title %> has received a new comment from <%= "#{@comment.user.username}" %>.
+Please view details of the comment at <%= link_to "#{@bet.title}", bet_url(@bet) %>.
+
+Enjoy!
