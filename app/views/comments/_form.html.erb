@@ -1,21 +1,10 @@
 <%= form_for [@bet, @comment] do |f| %>
-<<<<<<< HEAD
-  <div id="flip">
-    <%= f.label :body, "Add Comment" %>
-  </div>
-  <div id="panel">
-    <%= f.text_field :body %>
-
-    <%= f.submit "Submit", class: "button round success" %>
-  </div>
-=======
 <div id="flip">
-  <%= f.label :body, "Add Comment", class: "tiny button info round" %>
+  <%= f.label :body, "Add Comment", id: "comment-button", class: "tiny button info round" %>
 </div>
 <div id="panel">
   <%= f.text_field :body %>
 
   <%= f.submit "Submit", class: "button round success" %>
 </div>
->>>>>>> bd4c15e9cfc7cca38cc514d282c7fd72c7c347e8
 <%- end -%>
