@@ -1,64 +1,60 @@
-  <div class="row"
-  <%= image_tag("cartoon.png") %>
-  </div>
-  <div class='row'>
-    <div class="small-12 columns">
-      <h3><%= @bet.title %></h3>
-      <div class= "panel">
-        <% if !@bet.accepted? && !@bet.declined? %>
-          <h5><div style="color:red">**Bet is Pending Approval**</div></h5>
-        <% elsif @bet.accepted? %>
-          <h5><div style="color:green">**Bet is Accepted**</div></h5>
-        <% end %>
+<div class='row display-content'>
+  <div class="small-12 columns">
+    <h3><%= @bet.title %></h3>
+    <div class= "panel">
+      <% if !@bet.accepted? && !@bet.declined? %>
+        <h5><div style="color:red">**Bet is Pending Approval**</div></h5>
+      <% elsif @bet.accepted? %>
+        <h5><div style="color:green">**Bet is Accepted**</div></h5>
+      <% end %>
 
-        <h4>This bet was issued by <%= @bet.sender.username %> to <%= @bet.receiver.username %></h4>
-          <p>Terms of Bet: <%= @bet.body %></p>
-          <p>Wager Type: <%= @bet.wager.name %></p>
+      <h4>This bet was issued by <%= @bet.sender.username %> to <%= @bet.receiver.username %></h4>
+        <p><span class="bold">Terms of Bet:</span> <%= @bet.body %></p>
+        <p><span class="bold">Wager Type:</span> <%= @bet.wager.name %></p>
 
-        <% if !@bet.date.nil? %>
-          <p>Date: <%= @bet.date %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class='row'>
-    <% if !@bet.accepted? && !@bet.declined? && current_user == @bet.receiver %>
-    <div class='large-6 columns'>
-      <%= link_to "Accept", accept_bet_path(@bet), method: :patch, class: "button radius success" %>
-    </div>
-    <div class='large-6 columns'>
-      <%= link_to "Decline", decline_bet_path(@bet), method: :patch, class: "button round alert" %>
-    </div>
-    <% end %>
-  </div>
-
-  <div class="row collapse">
-    <h4>Comments</h4>
-  <div class="review-display small-12 columns">
-    <div class='panel'>
-    <% if @bet.comments.length == 0 %>
-      <p>No reviews yet.</p>
-    <% else %>
-      <ol>
-        <% @bet.comments.each do |comment| %>
-            <li>
-            <%=" #{comment.body}" unless comment.body.nil? %><br>
-            <p>User: <%= "#{comment.user.username}" %>
-                <% if current_user == comment.user %>
-                <%= link_to 'Delete', bet_comment_path(@bet, comment), method: :delete %>
-                <% end %>
-            </p>
-
-            <%- end -%>
-          </li>
-      </ol>
-    <%- end -%>
+      <% if !@bet.date.nil? %>
+        <p><span class="bold">Date:</span> <%= @bet.date %></p>
+      <% end %>
     </div>
   </div>
 </div>
 
-
-  <div class="comment-new small-12 column">
-    <%= render 'comments/form' %>
+<div class='row'>
+  <% if !@bet.accepted? && !@bet.declined? && current_user == @bet.receiver %>
+  <div class='large-6 columns'>
+    <%= link_to "Accept", accept_bet_path(@bet), method: :patch, class: "button radius success" %>
   </div>
+  <div class='large-6 columns'>
+    <%= link_to "Decline", decline_bet_path(@bet), method: :patch, class: "button round alert" %>
+  </div>
+  <% end %>
+</div>
+
+
+<div class='row display-content'>
+  <div class="small-12 columns">
+    <h4>Comments</h4>
+    <div class= "panel">
+      <% if @bet.comments.length == 0 %>
+        <p>No reviews yet.</p>
+      <% else %>
+      <ol>
+        <% @bet.comments.each do |comment| %>
+            <span class="bold"><%= "#{comment.user.username}" %></span>
+            <li>
+                <%= "#{comment.body}" unless comment.body.nil? %>
+                <div>
+                  <% if current_user == comment.user %>
+                  <%= link_to 'Delete', bet_comment_path(@bet, comment), method: :delete, class: "tiny round button alert" %>
+                  <% end %>
+                </div>
+            </li>
+            <%- end -%>
+        </ol>
+        <%- end -%>
+    </div>
+    <div class="comment-new small-12 column">
+      <%= render 'comments/form' %>
+    </div>
+  </div>
+</div>
