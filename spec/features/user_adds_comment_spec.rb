@@ -26,6 +26,8 @@ feature 'user writes comment on bet', %{
     visit bets_path
 
     click_link(bet.title)
+
+    find('#comment-button').click
     fill_in 'Comment', with: 'You are gonna lose BRAH!'
     click_button 'Submit'
 
@@ -39,6 +41,7 @@ feature 'user writes comment on bet', %{
     visit bets_path
 
     click_link(bet.title)
+    find('#comment-button').click
     fill_in 'Comment', with: 'You are gonna lose BRAH!'
     click_button 'Submit'
 
@@ -55,7 +58,8 @@ feature 'user writes comment on bet', %{
     visit bets_path
 
     click_link(bet.title)
-    fill_in 'Comment', with: 'You are gonna lose BRAH!'
+    find('#comment-button').click
+    fill_in 'comment_body', with: 'You are gonna lose BRAH!'
     click_button 'Submit'
 
     click_link 'Delete'

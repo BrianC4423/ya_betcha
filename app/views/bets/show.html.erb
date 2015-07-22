@@ -3,7 +3,7 @@
     <h3><%= @bet.title %></h3>
     <div class= "panel">
       <% if !@bet.accepted? && !@bet.declined? %>
-        <h5><div style="color:red">**Bet is Pending Approval**</div></h5>
+        <h5><div style="color:red"><span class="center">**Bet is Pending Approval**</span></div></h5>
       <% elsif @bet.accepted? %>
         <h5><div style="color:green"><span class="center">**Bet is Accepted**</span></div></h5>
       <% end %>

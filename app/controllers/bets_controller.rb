@@ -27,8 +27,8 @@ class BetsController < ApplicationController
 
     if @bet.save
       flash[:success] = 'Bet Submitted'
-      BetMailer.new_bet(@bet).deliver_later
       redirect_to root_path
+      BetMailer.new_bet(@bet).deliver_later
     else
       announce_errors(@bet)
       render :new
