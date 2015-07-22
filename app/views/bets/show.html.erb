@@ -5,7 +5,7 @@
       <% if !@bet.accepted? && !@bet.declined? %>
         <h5><div style="color:red">**Bet is Pending Approval**</div></h5>
       <% elsif @bet.accepted? %>
-        <h5><div style="color:green">**Bet is Accepted**</div></h5>
+        <h5><div style="color:green"><span class="center">**Bet is Accepted**</span></div></h5>
       <% end %>
 
       <h4>This bet was issued by <%= @bet.sender.username %> to <%= @bet.receiver.username %></h4>
@@ -38,19 +38,19 @@
       <% if @bet.comments.length == 0 %>
         <p>No reviews yet.</p>
       <% else %>
-      <ol>
+      <ul>
         <% @bet.comments.each do |comment| %>
-            <span class="bold"><%= "#{comment.user.username}" %></span>
+            <span class="bold"><%= "#{comment.user.username}" + ":" %></span>
             <li>
                 <%= "#{comment.body}" unless comment.body.nil? %>
-                <div>
+                <div class="comment-delete">
                   <% if current_user == comment.user %>
                   <%= link_to 'Delete', bet_comment_path(@bet, comment), method: :delete, class: "tiny round button alert" %>
                   <% end %>
                 </div>
             </li>
             <%- end -%>
-        </ol>
+        </ul>
         <%- end -%>
     </div>
     <div class="comment-new small-12 column">
