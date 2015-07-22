@@ -78,7 +78,7 @@ div.panel {
 .row .row h4 {
   text-decoration: underline;
   text-align: center;
-  margin: 25px 0px;
+  margin-bottom: 25px;
 }
 
 .row .row li {
@@ -88,4 +88,20 @@ div.panel {
 
 span.bold {
   font-weight: bold;
+}
+
+div h5 {
+  text-align: center;
+}
+
+div.comment-delete {
+  text-align: right;
+}
+
+div.comment-new {
+  margin-top: 15px;
+}
+
+#panel {
+    display: none;
 }
