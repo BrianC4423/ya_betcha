@@ -27,7 +27,7 @@ feature 'user writes comment on bet', %{
 
     click_link(bet.title)
     fill_in 'Comment', with: 'You are gonna lose BRAH!'
-    click_button 'Add Comment'
+    click_button 'Submit'
 
     expect(page).to have_content("Comment has been Added")
     expect(page).to have_content(bet.title)
@@ -40,7 +40,7 @@ feature 'user writes comment on bet', %{
 
     click_link(bet.title)
     fill_in 'Comment', with: 'You are gonna lose BRAH!'
-    click_button 'Add Comment'
+    click_button 'Submit'
 
     expect(page).to have_content("User can't be blank")
   end
@@ -56,7 +56,7 @@ feature 'user writes comment on bet', %{
 
     click_link(bet.title)
     fill_in 'Comment', with: 'You are gonna lose BRAH!'
-    click_button 'Add Comment'
+    click_button 'Submit'
 
     click_link 'Delete'
 
