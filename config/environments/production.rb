@@ -1,21 +1,21 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-      port: "587",
-      address: "smtp.mandrillapp.com",
-      user_name: ENV["MANDRILL_USERNAME"],
-      password: ENV["MANDRILL_APIKEY"],
-      domain: "heroku.com",
-      authentication: :plain
-    }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: "587",
+    address: "smtp.mandrillapp.com",
+    user_name: ENV["MANDRILL_USERNAME"],
+    password: ENV["MANDRILL_APIKEY"],
+    domain: "heroku.com",
+    authentication: :plain
+  }
 
-    config.action_mailer.default_url_options = {
-      host: "http://yabetcha.herokuapp.com/"
-    }
-    config.action_mailer.default_url_options
+  config.action_mailer.default_url_options = {
+    host: "http://yabetcha.herokuapp.com/"
+  }
+  config.action_mailer.default_url_options
 
-    config.cache_classes = true
+  config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
