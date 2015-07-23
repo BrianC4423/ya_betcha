@@ -105,7 +105,17 @@ div.comment-new {
 #panel {
     display: none;
 }
+#flashy-wrapper {
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #EFEF95;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  padding: 20px;
+}
 
-div.image {
-  text-align: justify;
+.button.round.success, .alert {
+  margin: 20px 0 0;
 }

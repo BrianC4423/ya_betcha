@@ -26,7 +26,7 @@ class BetsController < ApplicationController
     end
 
     if @bet.save
-      flash[:success] = 'Bet Submitted'
+      flash[:notice] = 'Bet Submitted'
       BetMailer.new_bet(@bet).deliver_later
       redirect_to root_path
     else
@@ -86,7 +86,7 @@ class BetsController < ApplicationController
 
   def announce_errors(bet)
     count = bet.errors.count
-    flash[:alert] = %(
+    flash[:notice] = %(
       #{count} #{'error'.pluralize(count)}
       prohibited this plan from being saved:
       #{bet.errors.full_messages.join('. ')}

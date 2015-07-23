@@ -1,0 +1,7 @@
+<%- flash.each do |key, value| -%>
+  <div id="flashy-wrapper">
+      <div class="flash flash-<%= key %>">
+        <%= value %>
+      </div>
+  </div>
+  <%- end -%>

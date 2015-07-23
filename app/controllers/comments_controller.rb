@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment.bet = @bet
     @comment.user = current_user
     if @comment.save
-      flash[:success] = 'Comment has been Added.'
+      flash[:notice] = 'Comment has been Added.'
       CommentMailer.sender_comment(@bet, @comment).deliver_later
       CommentMailer.receiver_comment(@bet, @comment).deliver_later
       redirect_to bet_path(@bet)
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @bet = @comment.bet
     if @comment.destroy
-      flash[:success] = 'Comment deleted'
+      flash[:notice] = 'Comment deleted'
       redirect_to bet_path(@bet)
     else
       flash[:alert] = "#{@comment.errors.full_messages.join('. ')}"
