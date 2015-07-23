@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'bets#index'
   devise_for :users
 
+  resources :users, only: [:show]
   resources :bets, only: [:index, :new, :create, :show, :update] do
     resources :comments, only: [:new, :create, :destroy]
   end

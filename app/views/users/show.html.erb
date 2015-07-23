@@ -1,0 +1,29 @@
+<div><h2><%= @user.username %></h2></div>
+<div class="all bets">
+  <div class="row index-content" data-equalizer>
+    <div class="accepted-bets small-6 columns panel" data-equalizer-watch>
+      <h4>Sent Bets<h4>
+        <ol>
+          <% @sent_bets.each do |bet| %>
+            <% if bet.accepted? %>
+              <li><%= link_to bet.title, bet_path(bet) %></li>
+            <% else %>
+              <li><%= link_to bet.title + "***PENDING***", bet_path(bet) %></li>
+            <% end %>
+          <% end %>
+        </ol>
+    </div>
+    <div class="pending-bets small-6 columns panel" data-equalizer-watch>
+      <h4>Recieved Bets</h4>
+        <ol>
+          <% @receive_bets.each do |bet| %>
+            <% if bet.accepted? %>
+              <li><%= link_to bet.title, bet_path(bet) %></li>
+            <% else %>
+              <li><%= link_to bet.title + "***PENDING***", bet_path(bet) %></li>
+            <% end %>
+          <% end %>
+        </ol>
+    </div>
+  </div>
+</div>
