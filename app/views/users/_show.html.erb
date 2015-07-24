@@ -1,0 +1,21 @@
+  <h4>Sent Bets<h4>
+    <ol>
+      <% @sent_bets.each do |bet| %>
+        <% if bet.accepted? %>
+          <li><%= link_to bet.title, bet_path(bet) %></li>
+        <% else %>
+          <li><%= link_to bet.title + "***PENDING***", bet_path(bet) %></li>
+        <% end %>
+      <% end %>
+    </ol>
+<br>
+  <h4>Recieved Bets</h4>
+    <ol>
+      <% @receive_bets.each do |bet| %>
+        <% if bet.accepted? %>
+          <li><%= link_to bet.title, bet_path(bet) %></li>
+        <% else %>
+          <li><%= link_to bet.title + "***PENDING***", bet_path(bet) %></li>
+        <% end %>
+      <% end %>
+    </ol>

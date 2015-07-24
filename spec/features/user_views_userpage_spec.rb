@@ -24,5 +24,6 @@ feature 'user can view all the bets they have made', %{
     click_link 'My Bets'
     expect(page).to have_content bet.title
     expect(page).to have_content user.username
+    expect(page).to_not have_content ("Send 'user.username' a Bet")
   end
 end

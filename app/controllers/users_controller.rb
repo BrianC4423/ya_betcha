@@ -3,5 +3,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @sent_bets = Bet.where(sender: @user)
     @receive_bets = Bet.where(receiver: @user)
+    @bet = Bet.new(receiver: @user)
   end
 end
