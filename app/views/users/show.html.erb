@@ -26,4 +26,34 @@
         </ol>
     </div>
   </div>
+
+<% if current_user != @user %>
+  <div class="row" id="flip">
+    <div class="button round">Send '<%= @user.username %>' a Bet</div>
+  </div>
+<% end %>
+  <div id="panel">
+    <div class="row bet">
+      <%= form_for @bet do |f| %>
+        <%= f.label :email %>
+        <%= f.text_field :receiver_id, id:'Email', value: @user.email %>
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+        <%= f.label :terms %>
+        <%= f.text_area :body, id:'Terms' %>
+
+        <%= f.label :wager_id %>
+        <%= f.collection_select(:wager_id, Wager.all, :id, :name,
+          prompt: true) %>
+
+        <%= f.label :Date, "Date(optional)" %>
+        <%= f.text_field :date, id: 'Date' %>
+
+
+        <span class="center"><%= f.submit 'Submit Bet', class: "button round success" %></span>
+      <% end %>
+    </div>
+  </div>
 </div>

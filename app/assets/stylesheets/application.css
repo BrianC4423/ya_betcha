@@ -72,8 +72,19 @@ div.panel {
   text-align: justify;
 }
 
+.bet {
+  max-width: 500px;
+}
+
 .bet h2 {
   text-align: center;
+ }
+
+div.row.bet {
+  max-width: 500px;
+  .button {
+    text-align: center;
+  }
 }
 
 .row .row h4 {
@@ -89,6 +100,10 @@ div.panel {
 
 span.bold {
   font-weight: bold;
+}
+
+span.center {
+  text-align: center;
 }
 
 div h5 {
@@ -117,6 +132,6 @@ div.comment-new {
   padding: 20px;
 }
 
-.button.round.success, .alert {
+.button.round {
   margin: 20px 0 0;
 }

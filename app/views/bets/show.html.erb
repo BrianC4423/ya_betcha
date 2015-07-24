@@ -8,7 +8,8 @@
         <h5><div style="color:green"><span class="center">**Bet is Accepted**</span></div></h5>
       <% end %>
 
-      <h4>This bet was issued by <%= @bet.sender.username %> to <%= @bet.receiver.username %></h4>
+      <h4>This bet was issued by <%= link_to @bet.sender.username, user_path(@bet.sender) %>
+         to <%= link_to @bet.receiver.username, user_path(@bet.receiver) %></h4>
         <p><span class="bold">Terms of Bet:</span> <%= @bet.body %></p>
         <p><span class="bold">Wager Type:</span> <%= @bet.wager.name %></p>
 
