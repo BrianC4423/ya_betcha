@@ -30,5 +30,5 @@ $(document).ready(function(){
     $('#flashy-wrapper').fadeOut('slow', function() {
       $(this).remove();
     });
-  }, 15000000);
+  }, 1500);
 });

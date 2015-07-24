@@ -21,10 +21,10 @@
 
 <div class='row'>
   <% if !@bet.accepted? && !@bet.declined? && current_user == @bet.receiver %>
-  <div class='large-6 columns'>
+  <div class='small-6 columns'>
     <%= link_to "Accept", accept_bet_path(@bet), method: :patch, class: "button round success" %>
   </div>
-  <div class='large-6 columns'>
+  <div class='small-6 columns'>
     <%= link_to "Decline", decline_bet_path(@bet), method: :patch, class: "button round alert" %>
   </div>
   <% end %>

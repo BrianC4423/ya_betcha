@@ -22,11 +22,11 @@ class BetsController < ApplicationController
     if receiver.present?
       @bet.receiver_id = receiver.id
     else
-      flash[:notice] = 'Email is not registered user'
+      flash[:alert] = 'Email is not registered user'
     end
 
     if @bet.save
-      flash[:notice] = 'Bet Submitted'
+      flash[:success] = 'Bet Submitted'
       BetMailer.new_bet(@bet).deliver_later
       redirect_to root_path
     else
@@ -48,10 +48,10 @@ class BetsController < ApplicationController
     if current_user.id == @bet.receiver_id
       @bet.accepted = true
       @bet.save
-      flash[:notice] = "Bet has been accepted!"
+      flash[:success] = "Bet has been accepted!"
       redirect_to bet_path(@bet)
     else
-      flash[:notice] = "You are not an authorized user"
+      flash[:alert] = "You are not an authorized user"
       render :show
     end
   end
@@ -61,10 +61,10 @@ class BetsController < ApplicationController
     if current_user.id == @bet.receiver_id
       @bet.declined = true
       @bet.destroy!
-      flash[:notice] = "Bet has been declined, and deleted!"
+      flash[:alert] = "Bet has been declined, and deleted!"
       redirect_to bets_path
     else
-      flash[:notice] = "You are not an authorized user"
+      flash[:alert] = "You are not an authorized user"
       render :show
     end
   end
