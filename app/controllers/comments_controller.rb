@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @bet = @comment.bet
     if @comment.destroy
-      flash[:success] = 'Comment deleted'
+      flash[:alert] = 'Comment deleted'
       redirect_to bet_path(@bet)
     else
       flash[:alert] = "#{@comment.errors.full_messages.join('. ')}"

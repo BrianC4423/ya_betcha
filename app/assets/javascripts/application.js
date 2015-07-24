@@ -20,7 +20,15 @@ $(function(){ $(document).foundation(); });
 src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
 
 $(document).ready(function(){
-   $("#flip").click(function(){
-       $("#panel").slideToggle("slow");
-   });
+  $("#flip").click(function(){
+    $("#panel").slideToggle("fast");
+  });
+});
+
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flashy-wrapper').fadeOut('slow', function() {
+      $(this).remove();
+    });
+  }, 1500);
 });

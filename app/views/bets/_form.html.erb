@@ -1,20 +1,22 @@
-<%= form_for @bet do |f| %>
-  <%= f.label :Email %>
-  <%= f.text_field :receiver_id, id:'Email' %>
+<div class="form">
+  <%= form_for @bet do |f| %>
+    <%= f.label :Email %>
+    <%= f.text_field :receiver_id, id:'Email' %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-  <%= f.label :terms %>
-  <%= f.text_area :body, id:'Terms' %>
+    <%= f.label :terms %>
+    <%= f.text_area :body, id:'Terms' %>
 
-  <%= f.label :wager_id %>
-  <%= f.collection_select(:wager_id, Wager.all, :id, :name,
-    prompt: true) %>
+    <%= f.label :wager_id %>
+    <%= f.collection_select(:wager_id, Wager.all, :id, :name,
+      prompt: true) %>
 
-  <%= f.label :Date, "Date(optional)" %>
-  <%= f.text_field :date, id: 'Date' %>
+    <%= f.label :Date, "Date(optional)" %>
+    <%= f.text_field :date, id: 'Date' %>
 
 
-  <%= f.submit 'Submit Bet' %>
-<% end %>
+    <%= f.submit 'Submit Bet', class: "button round success" %>
+  <% end %>
+</div>
