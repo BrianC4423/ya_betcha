@@ -127,9 +127,10 @@ div.comment-new {
   z-index: 999;
   background-color: #EFEF95;
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.5em;
   padding: 20px;
+  display: none;
 }
 
 .button.round {
