@@ -35,8 +35,7 @@
   <div id="panel">
     <div class="row bet">
       <%= form_for @bet do |f| %>
-        <%= f.label :email %>
-        <%= f.text_field :receiver_id, id:'Email', value: @user.email %>
+        <%= f.hidden_field :receiver_id, id:'Email', value: @user.email %>
 
         <%= f.label :title %>
         <%= f.text_field :title %>
