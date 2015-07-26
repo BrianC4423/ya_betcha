@@ -52,7 +52,8 @@ Bet.create(
   sender: User.first,
   receiver: User.third,
   title: "Science or Magic?",
-  body: "Which is better scinece of magic, Suttercane says Magic. Which ever gets 5 comments first wins",
+  body: "Which is better scinece of magic, Suttercane says Magic.
+    Which ever gets 5 comments first wins",
   wager: Wager.first
   )
 
