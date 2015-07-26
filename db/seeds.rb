@@ -17,11 +17,35 @@ WAGERS.each do |wager|
 end
 
 # users
-User.create(username: "RikerNumber1", email: 'riker1@gmail.com', password: "password")
-User.create(username: "BrainFreeze", email: 'brainfreeze@gmail.com', password: "password")
-User.create(username: "SutterCane", email: 'sc@gmail.com', password: "password")
-User.create(username: "DrDidg", email: 'drdidg@gmail.com', password: "password")
-User.create(username: "ChunkyLover53", email: 'chunky@gmail.com', password: "password")
+User.create(
+  username: "RikerNumber1",
+  email: 'riker1@gmail.com',
+  password: "password"
+  )
+
+User.create(
+  username: "BrainFreeze",
+  email: 'brainfreeze@gmail.com',
+  password: "password"
+  )
+
+User.create(
+  username: "SutterCane",
+  email: 'sc@gmail.com',
+  password: "password"
+  )
+
+User.create(
+  username: "DrDidg",
+  email: 'drdidg@gmail.com',
+  password: "password"
+  )
+
+User.create(
+  username: "ChunkyLover53",
+  email: 'chunky@gmail.com',
+  password: "password"
+  )
 
 # bets pending
 Bet.create(
