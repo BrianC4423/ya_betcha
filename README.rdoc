@@ -2,3 +2,11 @@
 
 ![Build Status](https://codeship.com/projects/76153b50-0934-0133-7085-72148ce6a2d8/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/BrianC4423/ya_betcha.png)
+
+
+###YaBetcha###
+
+A web app that allows registered users to be able to send and receive
+bets and talk trash. This app is all about accountability.
+
+'https://yabetcha.herokuapp.com'
