@@ -2,7 +2,8 @@ class BetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @bets = Bet.page(params[:page])
+    @active_bets = Bet.accepted("true").page(params[:page])
+    @pending_bets = Bet.accepted("false").page(params[:page])
   end
 
   def show
