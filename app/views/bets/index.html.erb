@@ -3,23 +3,20 @@
     <div class="accepted-bets small-6 columns panel" data-equalizer-watch>
       <h4>Active Bets<h4>
         <ol>
-          <% @bets.each do |bet| %>
-            <% if bet.accepted? %>
+          <% @active_bets.each do |bet| %>
               <li><%= link_to bet.title, bet_path(bet) %></li>
-            <% end %>
           <% end %>
         </ol>
+        <%= paginate @active_bets %>
     </div>
     <div class="pending-bets small-6 columns panel" data-equalizer-watch>
       <h4>Pending Bets</h4>
         <ol>
-          <% @bets.each do |bet| %>
-            <% if !bet.accepted && !bet.declined %>
+          <% @pending_bets.each do |bet| %>
               <li><%= link_to bet.title, bet_path(bet) %></li>
-            <% end %>
           <% end %>
         </ol>
+        <%= paginate @pending_bets %>
     </div>
   </div>
-        <%= paginate @bets %>
 </div>

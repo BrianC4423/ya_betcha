@@ -11,4 +11,6 @@ class Bet < ActiveRecord::Base
   validates :body, presence: true
   validates :wager_id, presence: true
 
+  scope :accepted, -> boolean { where(accepted: boolean) }
+  paginates_per 5
 end
