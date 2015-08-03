@@ -40,7 +40,7 @@
         <p>No reviews yet.</p>
       <% else %>
       <ul>
-        <% @bet.comments.each do |comment| %>
+        <% @comments.each do |comment| %>
             <span class="bold"><%= "#{comment.user.username}" + ":" %></span>
             <li>
                 <%= "#{comment.body}" unless comment.body.nil? %>
@@ -53,6 +53,7 @@
             <%- end -%>
         </ul>
         <%- end -%>
+        <%= paginate @comments %>
     </div>
     <div class="comment-new small-12 column">
       <%= render 'comments/form' %>

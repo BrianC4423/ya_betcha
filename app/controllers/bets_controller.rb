@@ -8,7 +8,7 @@ class BetsController < ApplicationController
 
   def show
     @bet = Bet.find(params[:id])
-    @comments = @bet.comments
+    @comments = @bet.comments.page(params[:page])
     @comment = Comment.new
   end
 
