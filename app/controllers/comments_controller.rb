@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
       redirect_to bet_path(@bet)
     else
       flash[:alert] = "#{@comment.errors.full_messages.join('. ')}"
-      render 'bets/show'
+      redirect_to bet_path(@bet)
     end
   end
 
