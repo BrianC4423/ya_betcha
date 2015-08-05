@@ -19,10 +19,13 @@ class BetsController < ApplicationController
   def create
     @bet = Bet.new(bet_params)
     @bet.sender = current_user
-    receiver = User.find_by_email(bet_email[:receiver_id])
-    if receiver.present?
-      @bet.receiver_id = receiver.id
-    else
+    # receiver = User.find_by_email(bet_email[:receiver_id])
+    # if receiver.present?
+    #   @bet.receiver_id = receiver.id
+    # else
+    #   flash[:alert] = 'Email is not registered user'
+    # end
+    if !@bet.set_receiver(bet_email[:receiver_id])
       flash[:alert] = 'Email is not registered user'
     end
 

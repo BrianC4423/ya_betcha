@@ -13,4 +13,11 @@ class Bet < ActiveRecord::Base
 
   scope :accepted, -> boolean { where(accepted: boolean) }
   paginates_per 5
+
+  def set_receiver(email)
+    user = User.find_by_email(email)
+    if user.present?
+      self.receiver = user
+    end
+  end
 end
