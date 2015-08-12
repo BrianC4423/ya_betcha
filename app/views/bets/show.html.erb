@@ -11,7 +11,9 @@
       <h4>This bet was issued by <%= link_to @bet.sender.username, user_path(@bet.sender) %>
          to <%= link_to @bet.receiver.username, user_path(@bet.receiver) %></h4>
         <p><span class="bold">Terms of Bet:</span> <%= @bet.body %></p>
-        <p><span class="bold">Wager Type:</span> <%= @bet.wager.name %></p>
+        <p><span class="bold">Wager Type:</span> <%= @bet.wager.name %>
+           <span class="left"><%= link_to "Like",  <%= @bet.votes.sum(:value) %></span>
+         </p>
 
       <% if !@bet.date.nil? %>
         <p><span class="bold">Date:</span> <%= @bet.date %></p>
