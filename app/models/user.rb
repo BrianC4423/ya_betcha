@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :bets
   has_many :comments
+  has_many :votes
 
   validates :username, presence: true, uniqueness: true
 
